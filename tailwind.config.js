@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-// const theme = require("./theme/config.js");
+const theme = require("./theme/config.commentJs.js");
 module.exports = {
   darkMode: 'class',
   content: [
@@ -20,9 +20,9 @@ module.exports = {
     },
     extend: {
       colors: {
-        // primary: theme.primary,
-        // lightPrimary: theme.lightPrimary,
-        // secondary: theme.secondary,
+        primary: theme.primary,
+        lightPrimary: theme.lightPrimary,
+        secondary: theme.secondary,
         primary: '#CFCFCF',
         lightPrimary: '#616161',
         secondary: '#381E25',

@@ -12,9 +12,9 @@
     </svg>
 </template>
 <script setup>
-import config from "~/theme/config.js";
-// const theme = require("../../theme/config.js");
+import theme from "~/theme/config.ECMAScript";
+import useDarkMode from "~/composables/useDarkMode";
 const { darkMode } = useDarkMode();
-const fillMain = computed(() => (darkMode.value ? config.primary : config.lightPrimary));
-const fillSecondary = computed(() => (darkMode.value ? config.secondary : "black"));
+const fillMain = computed(() => (darkMode.value ? theme.primary : theme.lightPrimary));
+const fillSecondary = computed(() => (darkMode.value ? theme.secondary : "black"));
 </script>

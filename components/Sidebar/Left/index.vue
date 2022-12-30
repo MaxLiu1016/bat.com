@@ -1,11 +1,11 @@
 <template>
     <div class="flex h-screen flex-col items-center">
         <div class="my-2 w-min rounded-full p-3 hover:bg-blue-50 dark:hover:bg-white/20 xl:ml-3 xl:self-start" :class="defaultTransition">
-            <nuxt-link to="/">
+            <nuxtLink to="/">
                 <div class="h-8 w-8">
                     <LogoBat />
                 </div>
-            </nuxt-link>
+            </nuxtLink>
         </div>
         <div class="mt-2 space-y-3">
             <SidebarLeftTab v-for="tab in tabs" :key="tab.name" :active="tab.active">
@@ -19,6 +19,7 @@
 </template>
 <script setup>
 import { HomeIcon } from "@heroicons/vue/solid";
+import useStyleConfig from "~/composables/useStyleConfig";
 import {
     HashtagIcon,
     BellIcon,
@@ -27,12 +28,10 @@ import {
     DocumentTextIcon,
     UserIcon,
     DotsCircleHorizontalIcon,
-    // PencilIcon,
-    // ChevronDownIcon,
 } from "@heroicons/vue/outline";
 
-const { defaultTransition } = useTailwindConfig();
-const tabs = ref([
+const { defaultTransition } = useStyleConfig();
+const tabs = [
     {
         name: "Home",
         icon: HomeIcon,
@@ -73,6 +72,6 @@ const tabs = ref([
         icon: DotsCircleHorizontalIcon,
         active: false,
     },
-]);
+];
 const props = defineProps({});
 </script>

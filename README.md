@@ -40,3 +40,8 @@ npm run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+// 1. typscript
+// 2. primis
+// 3. tailwind
+// 4. nuxt 3 vue3
