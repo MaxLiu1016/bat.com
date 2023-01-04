@@ -14,7 +14,6 @@
     </nuxt-link>
 </template>
 <script setup>
-import useStyleConfig from "~~/composables/useStyleConfig";
 const { defaultTransition } = useStyleConfig();
 
 const props = defineProps({

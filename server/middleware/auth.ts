@@ -4,12 +4,7 @@ import { getUserById } from "../services/user";
 import { sendErrorMessage } from "../utils/statusCodeHandle.js";
 
 export default defineEventHandler(async (event) => {
-    const endpoints = [
-        "/api/auth/user",
-        // "/api/user/tweets",
-        // "/api/tweets",
-        // "/api/tweets/:id"
-    ];
+    const endpoints = ["/api/auth/user", "/api/user/post", "/api/post", "/api/post/:id", "/api/posts", "/api/user/foo"];
     const isHandledByThisMiddleware = endpoints.some((endopoint) => {
         const pattern = new UrlPattern(endopoint);
         const url = event.node.req.url || "";
@@ -28,6 +23,6 @@ export default defineEventHandler(async (event) => {
         const user = await getUserById(userId);
         event.context.auth = { user };
     } catch (error) {
-        return;
+        sendErrorMessage(event, { statusCode: 401, statusMessage: "Unauthorized" });
     }
 });

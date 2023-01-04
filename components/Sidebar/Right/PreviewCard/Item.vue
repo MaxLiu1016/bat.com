@@ -4,7 +4,6 @@
     </div>
 </template>
 <script setup>
-import useStyleConfig from "~~/composables/useStyleConfig";
 const { defaultTransition, borderColor } = useStyleConfig();
 const wrapperClasses = computed(() => `${defaultTransition} ${borderColor}`);
 </script>

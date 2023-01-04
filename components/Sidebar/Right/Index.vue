@@ -69,7 +69,7 @@
                 <li class="mx-2 inline-block">
                     <a href="#" class="hover:underline">More</a>
                 </li>
-                <li class="mx-2 inline-block">© 2022 Twitter, Inc.</li>
+                <li class="mx-2 inline-block">© 2023 Bat, Inc.</li>
             </ul>
         </footer>
     </div>

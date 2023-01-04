@@ -1,5 +1,4 @@
 import jwt_decode from "jwt-decode";
-import useFetchApi from "~~/composables/useFetchApi";
 import { UserDto } from "~~/types/user";
 export default () => {
     const useAuthToken = () => useState("auth_token");
@@ -24,6 +23,7 @@ export default () => {
     const login = ({ username, password }: { username: string; password: string }) => {
         return new Promise(async (resolve, reject) => {
             try {
+                setIsAuthLoading(true);
                 const data = await $fetch("/api/auth/login", {
                     method: "POST",
                     body: {
@@ -38,11 +38,13 @@ export default () => {
                 resolve(true);
             } catch (error) {
                 reject(error);
+            } finally {
+                setIsAuthLoading(false);
             }
         });
     };
 
-    const refreshToken = () => {
+    const getRefreshToken = () => {
         return new Promise(async (resolve, reject) => {
             try {
                 const data = await $fetch("/api/auth/refresh");
@@ -78,7 +80,7 @@ export default () => {
         const newRefreshTime = jwt.exp - 60000;
 
         setTimeout(async () => {
-            await refreshToken();
+            await getRefreshToken();
             reRefreshAccessToken();
         }, newRefreshTime);
     };
@@ -87,7 +89,7 @@ export default () => {
         return new Promise(async (resolve, reject) => {
             setIsAuthLoading(true);
             try {
-                await refreshToken();
+                await getRefreshToken();
                 await getUser();
 
                 reRefreshAccessToken();

@@ -12,7 +12,6 @@
     </div>
 </template>
 <script setup>
-import useStyleConfig from "~/composables/useStyleConfig";
 const { borderColor, defaultTransition } = useStyleConfig();
 
 const props = defineProps({

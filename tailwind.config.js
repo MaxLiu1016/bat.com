@@ -2,6 +2,16 @@
 const theme = require("./theme/config.commentJs.js");
 module.exports = {
   darkMode: 'class',
+  safelist: [
+    {
+      pattern: /text-(red|green|blue)-(100|400)/,
+      variants: ['group-hover']
+    },
+    {
+      pattern: /bg-(red|green|blue)-(100|400)/,
+      variants: ['group-hover']
+    }
+  ],
   content: [
     "./components/**/*.{js,vue,ts}",
     "./layouts/**/*.vue",
@@ -23,9 +33,7 @@ module.exports = {
         primary: theme.primary,
         lightPrimary: theme.lightPrimary,
         secondary: theme.secondary,
-        primary: '#CFCFCF',
-        lightPrimary: '#616161',
-        secondary: '#381E25',
+        disabled: theme.disabled,
         dim: {
           50: "#5F99F7",
           100: "#5F99F7",

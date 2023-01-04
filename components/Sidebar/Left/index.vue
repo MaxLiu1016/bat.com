@@ -14,12 +14,24 @@
                 </template>
                 <template v-slot:name> {{ tab.name }} </template>
             </SidebarLeftTab>
+
+            <div class="hidden xl:block">
+                <UIButton liquid size="lg">
+                    <span class="font-bold"> post </span>
+                </UIButton>
+            </div>
+            <div class="flex justify-center xl:hidden">
+                <UIButton>
+                    <div class="h-4 w-4 font-bold">
+                        <PencilIcon />
+                    </div>
+                </UIButton>
+            </div>
         </div>
     </div>
 </template>
 <script setup>
 import { HomeIcon } from "@heroicons/vue/solid";
-import useStyleConfig from "~/composables/useStyleConfig";
 import {
     HashtagIcon,
     BellIcon,
@@ -28,6 +40,7 @@ import {
     DocumentTextIcon,
     UserIcon,
     DotsCircleHorizontalIcon,
+    PencilIcon,
 } from "@heroicons/vue/outline";
 
 const { defaultTransition } = useStyleConfig();

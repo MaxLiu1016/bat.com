@@ -16,7 +16,6 @@
     </div>
 </template>
 <script setup>
-import useAuth from "~~/composables/useAuth";
 const data = reactive({
     username: "",
     password: "",

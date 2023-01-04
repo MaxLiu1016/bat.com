@@ -1,5 +1,6 @@
 {
-    "primary": "#CFCFCF",
+    "primary": "#381E25",
     "lightPrimary": "#616161",
-    "secondary": "#381E25"
+    "secondary": "#CFCFCF",
+    "disabled": "#cbd5e1"
 }

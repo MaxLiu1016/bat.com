@@ -3,7 +3,6 @@ import bcrypt from "bcrypt";
 import { generateTokens, setRefreshTokenInCookie } from "../../utils/jwt";
 import { userTransformer } from "../../transformers/user";
 import { createRefreshToken } from "../../services/refreshTokens";
-import { RefreshTokenDto } from "~/types/refreshToken";
 import { User } from "@prisma/client";
 import { sendErrorMessage } from "~~/server/utils/statusCodeHandle";
 
