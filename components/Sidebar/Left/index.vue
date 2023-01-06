@@ -28,6 +28,31 @@
                 </UIButton>
             </div>
         </div>
+        <div
+            class="mx-auto mt-auto mb-5 flex w-14 cursor-pointer flex-row items-center justify-center rounded-full px-2 py-2 hover:bg-gray-100 dark:hover:bg-dim-800 xl:w-full"
+            :class="defaultTransition"
+            @click="emits('onLogout')"
+        >
+            <div class="flex flex-row">
+                <UIAvatar :background-color="props.user.profileBackground" :text="props.user.name" />
+                <div class="ml-2 hidden flex-col xl:block">
+                    <h1 class="flex text-sm font-bold text-gray-800 dark:text-white">
+                        <div>{{ user.name }}</div>
+                        <div class="ml-2 text-red-400">登出</div>
+                    </h1>
+                    <p class="flex text-sm text-gray-400">
+                        {{ user.handle }}
+                    </p>
+                </div>
+            </div>
+
+            <!-- ICON -->
+            <div class="ml-auto hidden xl:block">
+                <div class="h-6 w-6">
+                    <ChevronDownIcon />
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 <script setup>
@@ -44,7 +69,7 @@ import {
 } from "@heroicons/vue/outline";
 
 const { defaultTransition } = useStyleConfig();
-const emits = defineEmits(["onPost"]);
+const emits = defineEmits(["onPost", "onLogout"]);
 const tabs = [
     {
         name: "Home",
@@ -87,4 +112,10 @@ const tabs = [
         active: false,
     },
 ];
+const props = defineProps({
+    user: {
+        type: Object,
+        required: true,
+    },
+});
 </script>

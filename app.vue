@@ -7,7 +7,7 @@
                     <!-- Left sidebar -->
                     <div class="col-span-2 md:col-span-2 md:block">
                         <div class="sticky top-0">
-                            <SidebarLeft @onPost="handleOpenPostModal" />
+                            <SidebarLeft :user="user" @onPost="handleOpenPostModal" @onLogout="handleUserLogout" />
                         </div>
                     </div>
                     <!-- Main content -->
@@ -31,7 +31,7 @@
     </div>
 </template>
 <script setup>
-const { initAuth, useAuthUser, useAuthLoading } = useAuth();
+const { initAuth, useAuthUser, useAuthLoading, logout } = useAuth();
 const { closePostPostModal, usePostPostModal, openPostPostModal, useReplyPost } = usePosts();
 const { darkMode } = useDarkMode();
 const emitter = useEmitter();
