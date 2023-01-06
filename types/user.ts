@@ -3,7 +3,8 @@ export type UserDto = {
     name: string | null;
     email: string;
     username: string;
-    profileImage: string | null;
+    // profileImage: string | null;
+    profileBackground: string | null;
     handle: string;
     createdAt?: Date;
     updatedAt?: Date;

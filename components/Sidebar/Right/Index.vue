@@ -77,7 +77,7 @@
 <script setup>
 import { SearchIcon } from "@heroicons/vue/outline";
 const search = ref("");
-// const emitter = useEmitter()
+const emitter = useEmitter();
 
 function handleSearch() {
     useRouter().push({
@@ -121,7 +121,7 @@ const whoToFollowItems = ref([
     },
 ]);
 
-// function handleToggleDarkMode() {
-//     emitter.$emit('toggleDarkMode')
-// }
+function handleToggleDarkMode() {
+    emitter.$emit("toggleDarkMode");
+}
 </script>

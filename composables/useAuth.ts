@@ -1,5 +1,5 @@
 import jwt_decode from "jwt-decode";
-import { UserDto } from "~~/types/user";
+import { UserDto } from "~/types/user";
 export default () => {
     const useAuthToken = () => useState("auth_token");
     const useAuthUser = () => useState("auth_user");
@@ -91,9 +91,7 @@ export default () => {
             try {
                 await getRefreshToken();
                 await getUser();
-
                 reRefreshAccessToken();
-
                 resolve(true);
             } catch (error) {
                 reject(error);

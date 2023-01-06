@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div class="border-y">
         <div v-if="loading" class="flex items-center justify-center py-6">
             <UISpinner />
         </div>
         <div v-else>
-            <PostItem :post="props.replyTo" v-if="props.replyTo && props.showReply" hideActions />
+            <PostItem :post="props.replyTo" v-if="props.replyTo && props.showReply" hideActions :compact="true" />
             <PostFormInput :placeholder="props.placeholder" :user="props.user" @onSubmit="handleFormSubmit" />
         </div>
     </div>

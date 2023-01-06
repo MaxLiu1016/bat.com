@@ -32,8 +32,9 @@ export default defineEventHandler(async (event) => {
 
         return {
             body: userTransformer(user),
+            statusCode: 200,
         };
-    } catch (error) {
-        return sendErrorMessage(event, { statusCode: 500, statusMessage: "Internal server error" });
+    } catch (error: any) {
+        return sendErrorMessage(event, { statusCode: 500, statusMessage: "Internal server error" }, error);
     }
 });

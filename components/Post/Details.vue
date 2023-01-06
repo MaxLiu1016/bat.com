@@ -1,13 +1,15 @@
+import test from 'node:test';
 <template>
     <div>
-        <PostItem :post="props.post" />
+        <PostItem :post="postVModel" compact />
 
-        <PostForm placeholder="Post your reply" :reply-to="props.post" :user="props.user" @on-success="handleFormSuccess" />
+        <PostForm placeholder="Post your reply" :reply-to="postVModel" :user="props.user" @on-success="handleFormSuccess" />
 
-        <PostListFeed :posts="replies" />
+        <PostListFeed v-model:posts="replies" :loading-more="loadingMore" />
     </div>
 </template>
 <script setup>
+const emits = defineEmits(["onUpdate", "update:post"]);
 const props = defineProps({
     post: {
         type: Object,
@@ -17,13 +19,23 @@ const props = defineProps({
         type: Object,
         required: true,
     },
+    loadingMore: {
+        type: Boolean,
+        required: true,
+    },
+});
+const postVModel = computed({
+    get() {
+        return props.post;
+    },
+    set(value) {
+        emits("update:post", value);
+    },
 });
 
-const replies = computed(() => props.post?.replies || []);
+const replies = computed(() => postVModel.value?.replies || []);
 
 function handleFormSuccess(post) {
-    navigateTo({
-        path: `/status/${post.id}`,
-    });
+    emits("updatePosts");
 }
 </script>

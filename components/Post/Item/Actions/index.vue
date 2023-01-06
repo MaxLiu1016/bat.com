@@ -12,7 +12,7 @@
     </div>
 </template>
 <script setup>
-import { ChatIcon, RefreshIcon, HeartIcon, UploadIcon } from "@heroicons/vue/outline";
+import { ChatIcon } from "@heroicons/vue/outline";
 
 const emits = defineEmits(["onCommentClick"]);
 

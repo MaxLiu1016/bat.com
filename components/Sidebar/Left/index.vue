@@ -16,12 +16,12 @@
             </SidebarLeftTab>
 
             <div class="hidden xl:block">
-                <UIButton liquid size="lg">
+                <UIButton liquid size="lg" @onClick="emits('onPost')">
                     <span class="font-bold"> post </span>
                 </UIButton>
             </div>
             <div class="flex justify-center xl:hidden">
-                <UIButton>
+                <UIButton @onClick="emits('onPost')">
                     <div class="h-4 w-4 font-bold">
                         <PencilIcon />
                     </div>
@@ -44,6 +44,7 @@ import {
 } from "@heroicons/vue/outline";
 
 const { defaultTransition } = useStyleConfig();
+const emits = defineEmits(["onPost"]);
 const tabs = [
     {
         name: "Home",
@@ -86,5 +87,4 @@ const tabs = [
         active: false,
     },
 ];
-const props = defineProps({});
 </script>

@@ -8,8 +8,7 @@
             <div class="border-b" :class="borderColor">
                 <PostForm :user="user" @on-success="handleFormSuccess" />
             </div>
-
-            <PostListFeed :posts="homePosts" />
+            <PostListFeed v-model:posts="homePosts" :loading-more="false" />
         </MainSection>
     </div>
 </template>
@@ -36,7 +35,14 @@ onBeforeMount(async () => {
 });
 
 async function handleFormSuccess(post) {
-    homePosts.value.unshift(post);
+    try {
+        const { posts } = await getPosts();
+        homePosts.value = posts;
+    } catch (error) {
+        console.log(error);
+    } finally {
+        loading.value = false;
+    }
     // navigateTo({
     //     path: `/status/${post.id}`,
     // });

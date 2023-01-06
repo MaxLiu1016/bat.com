@@ -2,7 +2,8 @@
     <div>
         <div class="flex flex-shrink-0 items-center p-4 pb-0">
             <div class="items-top flex w-12">
-                <img :src="props.user?.profileImage" alt="" class="inline-block h-10 w-10 rounded-full" />
+                <!-- <img :src="props.user?.profileImage" alt="" class="inline-block h-10 w-10 rounded-full" /> -->
+                <UIAvatar :background-color="props.user?.profileBackground" :text="props.user?.name" />
             </div>
 
             <div class="w-full p-2">

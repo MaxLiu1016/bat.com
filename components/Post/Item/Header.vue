@@ -1,7 +1,8 @@
 <template>
     <div class="flex p-4">
         <div>
-            <img class="h-10 w-10 rounded-full" :src="author.profileImage" alt="" />
+            <!-- <img class="h-10 w-10 rounded-full" :src="author.profileImage" alt="" /> -->
+            <UIAvatar :background-color="author.profileBackground" :text="author.name" />
         </div>
 
         <div class="ml-3">

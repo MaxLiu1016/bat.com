@@ -4,7 +4,7 @@ import { getUserById } from "../services/user";
 import { sendErrorMessage } from "../utils/statusCodeHandle.js";
 
 export default defineEventHandler(async (event) => {
-    const endpoints = ["/api/auth/user", "/api/user/post", "/api/post", "/api/post/:id", "/api/posts", "/api/user/foo"];
+    const endpoints = ["/api/auth/user", "/api/user/post", "/api/post", "/api/post/:id", "/api/posts", "/api/posts/:id"];
     const isHandledByThisMiddleware = endpoints.some((endopoint) => {
         const pattern = new UrlPattern(endopoint);
         const url = event.node.req.url || "";

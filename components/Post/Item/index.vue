@@ -17,14 +17,14 @@
 
             <div class="mt-2" v-if="!props.hideActions">
                 <PostItemActions :post="props.post" :compact="props.compact" @on-comment-click="handleCommentClick" />
+                <!-- <PostItemActions :post="props.post" :compact="props.compact" /> -->
             </div>
         </div>
     </div>
 </template>
 <script setup>
 const { borderColor } = useStyleConfig();
-
-// const emitter = useEmitter();
+const emitter = useEmitter();
 
 const props = defineProps({
     post: {
@@ -45,7 +45,7 @@ const postBodyWrapper = computed(() => (props.compact ? "ml-16" : "ml-2 mt-4"));
 
 const textSize = computed(() => (props.compact ? "text-base" : "text-2xl"));
 
-// function handleCommentClick() {
-//     emitter.$emit("replyPost", props.post);
-// }
+function handleCommentClick() {
+    emitter.$emit("replyPost", props.post);
+}
 </script>
