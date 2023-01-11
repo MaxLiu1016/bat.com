@@ -31,7 +31,7 @@ async function getPost() {
         const response = await getPostById(getPostIdFromRoute());
         post.value = response.post;
     } catch (error) {
-        console.log(error.data);
+        throw error;
     } finally {
         loading.value = false;
     }
@@ -42,7 +42,7 @@ async function updatePosts() {
         const response = await getPostById(getPostIdFromRoute());
         post.value = response.post;
     } catch (error) {
-        console.log(error);
+        throw error;
     } finally {
         loadingMore.value = false;
     }

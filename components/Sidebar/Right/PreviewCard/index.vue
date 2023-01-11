@@ -6,7 +6,11 @@
 
         <slot></slot>
 
-        <div class="cursor-pointer p-3 text-sm text-blue-400 hover:bg-gray-100 dark:hover:bg-dim-300" :class="defaultTransition">
+        <div
+            @click="alertHandler('開發中~ 敬請期待')"
+            class="cursor-pointer p-3 text-sm text-blue-400 hover:bg-gray-100 dark:hover:bg-dim-300"
+            :class="defaultTransition"
+        >
             Show more
         </div>
     </div>
@@ -20,4 +24,7 @@ const props = defineProps({
         required: true,
     },
 });
+function alertHandler(params) {
+    alert(params);
+}
 </script>

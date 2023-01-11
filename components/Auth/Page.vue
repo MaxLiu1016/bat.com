@@ -8,7 +8,12 @@
         </div>
         <div class="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
             <div class="mx-auto flex h-full w-full max-w-sm items-center lg:w-96">
-                <AuthForm />
+                <template v-if="useRoute().name === 'login'">
+                    <AuthLoginForm />
+                </template>
+                <template v-else>
+                    <AuthRegisterForm />
+                </template>
             </div>
         </div>
     </div>

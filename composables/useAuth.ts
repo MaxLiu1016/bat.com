@@ -44,13 +44,40 @@ export default () => {
         });
     };
 
+    //register
+    const register = ({ username, name, password, email, repeatPassword }: any) => {
+        return new Promise(async (resolve, reject) => {
+            try {
+                setIsAuthLoading(true);
+                const data = await $fetch("/api/auth/register", {
+                    method: "POST",
+                    body: {
+                        username,
+                        name,
+                        password,
+                        email,
+                        repeatPassword,
+                    },
+                });
+                if (data.statusCode === 200) {
+                    await login({ username, password });
+                }
+                resolve(true);
+            } catch (error) {
+                reject(error);
+            } finally {
+                setIsAuthLoading(false);
+            }
+        });
+    };
+
     const getRefreshToken = () => {
         return new Promise(async (resolve, reject) => {
             try {
                 const data = await $fetch("/api/auth/refresh");
                 setToken(data.access_token);
                 resolve(true);
-            } catch (error) {
+            } catch (error: any) {
                 reject(error);
             }
         });
@@ -118,10 +145,12 @@ export default () => {
 
     return {
         login,
+        register,
         useAuthUser,
         useAuthToken,
         initAuth,
         useAuthLoading,
         logout,
+        getUser,
     };
 };

@@ -50,7 +50,7 @@ export const generateTokens = (user: User) => {
 
 export const setRefreshTokenInCookie = (event: H3Event, token: string): void => {
     setCookie(event, "refresh_token", token, {
-        httpOnly: true,
-        sameSite: true,
+        // httpOnly: true,
+        // sameSite: true,
     });
 };

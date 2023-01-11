@@ -1,6 +1,27 @@
-# Nuxt 3 Minimal Starter
+# 使用相關技術
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## 前端
+
+Nuxt.js 3.0
+Vue.js 3.0
+Tailwind CSS 3.2
+
+## 後端
+
+Nuxt.js 3.0
+Prisma
+
+## 資料庫
+
+MongoDB
+
+## 已實現功能
+
+-   [O] 使用者註冊
+-   [O] 使用者登入
+-   [O] 使用者登出
+-   [O] 使用者貼文
+-   [O] 使用者回覆
 
 ## Setup
 
@@ -40,8 +61,3 @@ npm run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-
-// 1. typscript
-// 2. primis
-// 3. tailwind
-// 4. nuxt 3 vue3

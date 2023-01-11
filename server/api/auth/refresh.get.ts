@@ -6,8 +6,7 @@ import { sendErrorMessage } from "~~/server/utils/statusCodeHandle";
 
 export default defineEventHandler(async (event: H3Event) => {
     try {
-        const refreshToken = getCookie(event, "refresh_token");
-
+        const refreshToken = getCookie(event, "refresh_token") || (event.node.req.headers["refresh_token"] as string);
         if (!refreshToken) {
             return sendErrorMessage(event, { statusCode: 401, statusMessage: "Refresh token is empty" });
         }

@@ -41,7 +41,10 @@
                         </div>
                     </div>
                     <div class="flex h-full">
-                        <button class="rounded-full bg-black px-4 py-2 text-xs font-bold text-white dark:bg-white dark:text-black">
+                        <button
+                            @click="alertHandler('開發中~ 敬請期待')"
+                            class="rounded-full bg-black px-4 py-2 text-xs font-bold text-white dark:bg-white dark:text-black"
+                        >
                             Follow
                         </button>
                     </div>
@@ -123,5 +126,8 @@ const whoToFollowItems = ref([
 
 function handleToggleDarkMode() {
     emitter.$emit("toggleDarkMode");
+}
+function alertHandler(params) {
+    alert(params);
 }
 </script>

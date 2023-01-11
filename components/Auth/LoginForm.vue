@@ -5,7 +5,8 @@
                 <LogoBat />
             </div>
         </div>
-
+        <h1 class="mt-2 text-center text-primary">登入</h1>
+        <NuxtLink class="mt-1 block text-center text-gray-700" to="/register">去註冊</NuxtLink>
         <div class="space-y-6 pt-5">
             <UIInput v-model="data.username" label="Username" placeholder="@username" />
 
@@ -30,8 +31,11 @@ async function handleLogin() {
             username: data.username,
             password: data.password,
         });
+        navigateTo({
+            path: "/",
+        });
     } catch (error) {
-        console.log(error);
+        alert("帳號或是密碼有誤 :(", error);
     } finally {
         data.loading = false;
     }

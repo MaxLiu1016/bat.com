@@ -1,13 +1,11 @@
 <template>
-    <div>
-        <MainSection title="Search" :loading="loading">
-            <Head>
-                <Title>Search</Title>
-            </Head>
+    <MainSection title="Search" :loading="loading">
+        <Head>
+            <Title>Search</Title>
+        </Head>
 
-            <PostListFeed :posts="searchPosts" />
-        </MainSection>
-    </div>
+        <PostListFeed :posts="searchPosts" />
+    </MainSection>
 </template>
 <script setup>
 const { getPosts: getPostsComposable } = usePosts();
@@ -34,7 +32,7 @@ async function getPosts() {
 
         searchPosts.value = posts;
     } catch (error) {
-        console.log(error);
+        alert("出了些問題，請稍後再試");
     } finally {
         loading.value = false;
     }

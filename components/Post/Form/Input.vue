@@ -1,43 +1,42 @@
 <template>
-    <div>
-        <div class="flex flex-shrink-0 items-center p-4 pb-0">
-            <div class="items-top flex w-12">
-                <!-- <img :src="props.user?.profileImage" alt="" class="inline-block h-10 w-10 rounded-full" /> -->
-                <UIAvatar :background-color="props.user?.profileBackground" :text="props.user?.name" />
-            </div>
-
-            <div class="w-full p-2">
-                <textarea
-                    v-model="text"
-                    class="h-12 w-full border-0 bg-transparent text-lg text-gray-900 placeholder:text-gray-400 focus:ring-0 dark:text-white"
-                    :placeholder="props.placeholder"
-                ></textarea>
-            </div>
+    <div class="flex flex-shrink-0 items-center p-4 pb-0">
+        <div class="items-top flex w-12">
+            <!-- <img :src="props.user?.profileImage" alt="" class="inline-block h-10 w-10 rounded-full" /> -->
+            <UIAvatar :background-color="props.user?.profileBackground" :text="props.user?.name" />
         </div>
 
-        <!-- File Selector -->
-
-        <div class="p-4 pl-16">
-            <img :src="inputImageUrl" v-if="inputImageUrl" alt="" class="rounded-2xl border" :class="borderColor" />
-
-            <input type="file" ref="imageInput" hidden accept="image/png, image/gif, image/jpeg" @change="handleImageChange" />
+        <div class="w-full p-2">
+            <textarea
+                v-model="text"
+                class="h-12 w-full border-0 bg-transparent text-lg text-gray-900 placeholder:text-gray-400 focus:ring-0 dark:text-white"
+                :placeholder="props.placeholder"
+            ></textarea>
         </div>
+    </div>
 
-        <!-- Icons -->
-        <div class="flex p-2 pl-4">
-            <div class="flex w-full text-white">
-                <div class="cursor-pointer rounded-full p-2 text-blue-400 hover:bg-blue-50 dark:hover:bg-dim-800" @click="handleImageClick">
-                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor">
-                        <g>
-                            <path
-                                d="M19.75 2H4.25C3.01 2 2 3.01 2 4.25v15.5C2 20.99 3.01 22 4.25 22h15.5c1.24 0 2.25-1.01 2.25-2.25V4.25C22 3.01 20.99 2 19.75 2zM4.25 3.5h15.5c.413 0 .75.337.75.75v9.676l-3.858-3.858c-.14-.14-.33-.22-.53-.22h-.003c-.2 0-.393.08-.532.224l-4.317 4.384-1.813-1.806c-.14-.14-.33-.22-.53-.22-.193-.03-.395.08-.535.227L3.5 17.642V4.25c0-.413.337-.75.75-.75zm-.744 16.28l5.418-5.534 6.282 6.254H4.25c-.402 0-.727-.322-.744-.72zm16.244.72h-2.42l-5.007-4.987 3.792-3.85 4.385 4.384v3.703c0 .413-.337.75-.75.75z"
-                            ></path>
-                            <circle cx="8.868" cy="8.309" r="1.542"></circle>
-                        </g>
-                    </svg>
-                </div>
+    <!-- File Selector -->
 
-                <!-- <div class="cursor-pointer rounded-full p-2 text-blue-400 hover:bg-blue-50 dark:hover:bg-dim-800">
+    <div class="p-4 pl-16">
+        <img :src="inputImageUrl" v-if="inputImageUrl" alt="" class="rounded-2xl border" :class="borderColor" />
+
+        <input type="file" ref="imageInput" hidden accept="image/png, image/gif, image/jpeg" @change="handleImageChange" />
+    </div>
+
+    <!-- Icons -->
+    <div class="flex p-2 pl-4">
+        <div class="flex w-full text-white">
+            <div class="cursor-pointer rounded-full p-2 text-blue-400 hover:bg-blue-50 dark:hover:bg-dim-800" @click="handleImageClick">
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor">
+                    <g>
+                        <path
+                            d="M19.75 2H4.25C3.01 2 2 3.01 2 4.25v15.5C2 20.99 3.01 22 4.25 22h15.5c1.24 0 2.25-1.01 2.25-2.25V4.25C22 3.01 20.99 2 19.75 2zM4.25 3.5h15.5c.413 0 .75.337.75.75v9.676l-3.858-3.858c-.14-.14-.33-.22-.53-.22h-.003c-.2 0-.393.08-.532.224l-4.317 4.384-1.813-1.806c-.14-.14-.33-.22-.53-.22-.193-.03-.395.08-.535.227L3.5 17.642V4.25c0-.413.337-.75.75-.75zm-.744 16.28l5.418-5.534 6.282 6.254H4.25c-.402 0-.727-.322-.744-.72zm16.244.72h-2.42l-5.007-4.987 3.792-3.85 4.385 4.384v3.703c0 .413-.337.75-.75.75z"
+                        ></path>
+                        <circle cx="8.868" cy="8.309" r="1.542"></circle>
+                    </g>
+                </svg>
+            </div>
+
+            <!-- <div class="cursor-pointer rounded-full p-2 text-blue-400 hover:bg-blue-50 dark:hover:bg-dim-800">
                     <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor">
                         <g>
                             <path
@@ -91,13 +90,12 @@
                         </g>
                     </svg>
                 </div> -->
-            </div>
+        </div>
 
-            <div class="ml-auto">
-                <UIButton size="sm" :disabled="isDisabled" @onClick="handleFormSubmit">
-                    <span class="font-bold"> Post </span>
-                </UIButton>
-            </div>
+        <div class="ml-auto">
+            <UIButton size="sm" :disabled="isDisabled" @onClick="handleFormSubmit">
+                <span class="font-bold"> Post </span>
+            </UIButton>
         </div>
     </div>
 </template>

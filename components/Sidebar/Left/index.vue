@@ -67,7 +67,12 @@ import {
     DotsCircleHorizontalIcon,
     PencilIcon,
 } from "@heroicons/vue/outline";
-
+const props = defineProps({
+    user: {
+        type: Object,
+        required: true,
+    },
+});
 const { defaultTransition } = useStyleConfig();
 const emits = defineEmits(["onPost", "onLogout"]);
 const tabs = [
@@ -112,10 +117,4 @@ const tabs = [
         active: false,
     },
 ];
-const props = defineProps({
-    user: {
-        type: Object,
-        required: true,
-    },
-});
 </script>
