@@ -4,18 +4,18 @@
 
 ## 前端
 
-Nuxt.js 3.0
-Vue.js 3.0
-Tailwind CSS 3.2
+-   Nuxt.js 3.0
+-   Vue.js 3.0
+-   Tailwind CSS 3.2
 
 ## 後端
 
-Nuxt.js 3.0
-Prisma
+-   Nuxt.js 3.0
+-   Prisma
 
 ## 資料庫
 
-MongoDB
+-   MongoDB
 
 ## 已實現功能
 
